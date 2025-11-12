@@ -212,7 +212,7 @@ def page3():
                         # Company logo
                         self.image("construction.png", 40, 8, 25)  # (x, y, width)
                         self.set_font("Times", "B", 25)
-                        self.cell(0, 10, "Devlila Developers", ln=True, align="C")
+                        self.cell(0, 10, "Bansari Developers", ln=True, align="C")
                         self.ln(10)
 
                     def footer(self):
