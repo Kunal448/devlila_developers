@@ -221,19 +221,33 @@ def page2():
                 
             materials_type, materials_weight = st.columns([1,1])
             with materials_type:
-                m_type1 = st.selectbox("Type of Material", ['Select', 'GSB', 'WMM', 'Sand', 'Kapchi'])      
+                m_type1 = st.selectbox("Type of Material", ['Select', 'GSB', 'WMM', 'Sand', 'Kapchi', 'Steel', 'Brick', 'Moram', 'Black Soil', 'RCC Pipe', 'PVC Pipe'])      
                 materials_type_str = str(m_type1)
-            with materials_weight:
-                m_weight1 = st.text_input("Weight in Kg", int())
-                materials_weight_int = int(m_weight1)
                 
-            materials_rate, materials_amount = st.columns([1,2])
-            with materials_rate:
-                m_rate1 = st.text_input("Rate per Kg", int())
-                materials_rate_int = int(m_rate1)   
-            with materials_amount:
-                m_amount1 = st.text_input("Materials Amount", int(materials_weight_int * materials_rate_int))
-                materials_amount_int = int(m_amount1)
+            if materials_type_str == 'Brick' or materials_type_str == 'RCC Pipe' or materials_type_str == 'PVC Pipe':
+                with materials_weight:
+                    m_weight1 = st.text_input("No. of Pieces", float())
+                    materials_weight_int = float(m_weight1)
+                
+                materials_rate, materials_amount = st.columns([1,2])
+                with materials_rate:
+                    m_rate1 = st.text_input("Rate per Piece", float())
+                    materials_rate_int = float(m_rate1)   
+                with materials_amount:
+                    m_amount1 = st.text_input("Materials Amount", float(materials_weight_int * materials_rate_int))
+                    materials_amount_int = float(m_amount1)
+            else:
+                with materials_weight:
+                    m_weight1 = st.text_input("Weight in tons", float())
+                    materials_weight_int = float(m_weight1)
+                
+                materials_rate, materials_amount = st.columns([1,2])
+                with materials_rate:
+                    m_rate1 = st.text_input("Rate per ton", float())
+                    materials_rate_int = float(m_rate1)   
+                with materials_amount:
+                    m_amount1 = st.text_input("Materials Amount", float(materials_weight_int * materials_rate_int))
+                    materials_amount_int = float(m_amount1)
                 
                 
             add_materials_data = st.button("Add Materials Data")
