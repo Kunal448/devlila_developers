@@ -355,5 +355,6 @@ def page5():
         company_select = st.selectbox("Select Company", l)    
         result = df.loc[df['Company'] == company_select.strip(), 'Sheet']
 
-        open_worksheet(int(result.iloc[0])+1)
+        open_worksheet(int(result.iloc[0]))
+
 
